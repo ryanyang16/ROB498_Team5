@@ -1,7 +1,9 @@
 import rclpy
+import asyncio
 from rclpy.node import Node
 from std_srvs.srv import Trigger
 from geometry_msgs.msg import PoseStamped
+from mavros_msgs.srv import CommandBool, SetMode
 from rclpy.qos import QoSProfile, ReliabilityPolicy
 
 class CommNode(Node):
@@ -43,6 +45,17 @@ class CommNode(Node):
         self.srv_land   = self.create_service(Trigger, 'rob498_drone_5/comm/land',   self.callback_land)    
         self.srv_abort  = self.create_service(Trigger, 'rob498_drone_5/comm/abort',  self.callback_abort)   
 
+        # Service Clients for Autonomous Flight
+        # client = node that sends a request msg to a service server and waits for a reply
+        self.arm_client = self.create_client(CommandBool, '/mavros/cmd/arming')
+        self.mode_client = self.create_client(SetMode, '/mavros/set_mode')
+        
+        # Wait for services to become available before allowing the node to fully spin up
+        while not self.arm_client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Waiting for arming service...')
+        while not self.mode_client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Waiting for set_mode service...')
+
     def callback(self, msg):
         self.current_pose = msg
         
@@ -59,19 +72,65 @@ class CommNode(Node):
             #
             self.got_initial_pose = True
 
-    def callback_launch(self, request, response):
-        self.get_logger().info('Launch commanded - Target Z set to 0.5m')
+    async def callback_launch(self, request, response):
+        self.get_logger().info('Launch commanded - Arming and rising to 0.5m')
         self.current_state = "LAUNCH"
-        # Lock in current X/Y so we go straight up, update Z to 0.5
+        
+        # Set the target coords
         self.target_x = self.current_pose.pose.position.x
         self.target_y = self.current_pose.pose.position.y
         self.target_z = 0.5
+
+        # No current orientation
         self.target_orientation_x = self.current_pose.pose.orientation.x
         self.target_orientation_y = self.current_pose.pose.orientation.y
         self.target_orientation_z = self.current_pose.pose.orientation.z
         self.target_orientation_w = self.current_pose.pose.orientation.w
 
-        response.success = True
+        # Change flight mode w a timeout
+        mode_req = SetMode.Request()
+        mode_req.custom_mode = 'OFFBOARD'
+        
+        try:
+            # Wait max 2.0 seconds for the mode switch to succeed
+            # otherwise cancel
+            future = self.mode_client.call_async(mode_req)
+            mode_res = await asyncio.wait_for(future, timeout=2.0)
+            
+            if mode_res.mode_sent:
+                self.get_logger().info('SUCCESS: Switched to OFFBOARD mode.')
+            else:
+                self.get_logger().error('FAILED: Mode switch rejected. Aborting.')
+                response.success = False
+                return response
+
+        except asyncio.TimeoutError:
+            self.get_logger().error('CRITICAL: Timeout waiting for mode switch response. Aborting.')
+            response.success = False
+            return response
+
+        # Arm the motors
+        arm_req = CommandBool.Request()
+        arm_req.value = True
+
+        try:
+            # Wait max 2.0 seconds for the mode switch to succeed
+            # otherwise cancel
+            future = self.mode_client.call_async(self.arm_client)
+            arm_res = await asyncio.wait_for(future, timeout=2.0)
+            
+            if arm_res.success:
+                self.get_logger().info('SUCCESS: Armed the motors.')
+            else:
+                self.get_logger().error('FAILED: Motor arming rejected. Aborting.')
+                response.success = False
+                return response
+
+        except asyncio.TimeoutError:
+            self.get_logger().error('CRITICAL: Timeout waiting for arming response. Aborting.')
+            response.success = False
+            return response
+            
         return response
 
     def callback_test(self, request, response):
@@ -93,6 +152,7 @@ class CommNode(Node):
     def callback_land(self, request, response):
         self.get_logger().info('Land commanded - Target Z set to 0.0m')
         self.current_state = "LAND"
+        
         # Maintain current X/Y, descend to floor
         self.target_x = self.current_pose.pose.position.x
         self.target_y = self.current_pose.pose.position.y
@@ -101,9 +161,20 @@ class CommNode(Node):
         return response
 
     def callback_abort(self, request, response):
-        self.get_logger().error('ABORT - Dropping to floor')
+        self.get_logger().fatal('ABORT: Cutting power to motors')
         self.current_state = "ABORT"
         self.target_z = 0.0
+
+        # send a disarm request
+        arm_req = CommandBool.Request()
+        arm_req.value = False 
+        self.arm_client.call_async(arm_req) # no waiting for the response
+        
+        # (Backup if disarm is rejected - command a landing mode) - needed?
+        mode_req = SetMode.Request()
+        mode_req.custom_mode = 'AUTO.LAND' # PX4 specific land mode
+        self.mode_client.call_async(mode_req)
+
         response.success = True
         return response
 
