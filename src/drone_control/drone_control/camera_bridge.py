@@ -14,7 +14,7 @@ class CameraBridge(Node):
         )
 
         # --- CONFIGURATION ---
-        # Source: The topic the camera publishes to
+        # Source: The topic the camera publishes to (pose, no velocity)
         self.camera_topic = '/camera/pose/sample'
 
         # Target: The topic MAVROS listens to for external position data
@@ -39,14 +39,17 @@ class CameraBridge(Node):
     def listener_callback(self, msg):
         # Ideally, Vicon and MAVROS usually both use ENU (East-North-Up) frames.
         # If so, we can simply pass the message through.
-
-        # OPTIONAL: You might need to update the timestamp if there is significant
-        # clock drift between the Vicon computer and the Jetson, 
-        # but usually passing the original timestamp is safer for the EKF.
+        
         pub_pose = PoseStamped()
         # pub_pose.header.frame_id = "odom"
+
+        # MIGHT have to change it later if EKF is too sensitive to timestamps? 
+        # This overwrites camera's timestamps with Jetson ones
         pub_pose.header.stamp = self.get_clock().now().to_msg()
 
+        # coords measured wrt to the odom 0,0,0
+        # odom is smoother but map is globally correct, though jerks if drone's position is found to be wrong
+        # will have to change to map if we need to reach some point within the room, or do global SLAM
         pub_pose.header.frame_id = "odom"        
         # pub_pose.pose = msg.pose.pose
         pub_pose.pose.position.x = -msg.pose.pose.position.x
