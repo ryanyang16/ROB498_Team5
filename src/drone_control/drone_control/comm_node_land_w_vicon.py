@@ -58,7 +58,9 @@ class CommNode(Node):
             [0.0, 0.0, 0.0],  # WP1: Will be replaced by current position
             [0.5, 0.5, 0.5],  # WP2
             [0.5, 1.0, 1.0],  # WP3
-            [-0.5, 1.0, 0.5]  # WP4
+            [-0.5, 1.0, 0.5],
+            [1.0, 1.0, 1.0],
+            [1.5, -0.5, 0.5]  # WP4
         ]
         self.calib_wp_index = 0
         self.calib_cam_pts = []
