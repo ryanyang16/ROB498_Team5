@@ -1,4 +1,5 @@
 import rclpy
+import math
 from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped
 from rclpy.qos import QoSProfile, ReliabilityPolicy
@@ -43,7 +44,22 @@ class ViconBridge(Node):
         # clock drift between the Vicon computer and the Jetson, 
         # but usually passing the original timestamp is safer for the EKF.
 
-        self.publisher_.publish(msg)
+        pub_pose = PoseStamped()
+        pub_pose.header.stamp = self.get_clock().now().to_msg()
+        pub_pose.header.frame_id = "odom"
+
+        pub_pose.pose.position.x = msg.pose.pose.position.y
+        pub_pose.pose.position.y = -msg.pose.pose.position.x
+        pub_pose.pose.position.z = msg.pose.pose.position.z
+        
+        S = math.sqrt(0.5) #0.7071
+
+        pub_pose.pose.orientation.x = S * (msg.pose.pose.orientation.x + msg.pose.pose.orientation.y)
+        pub_pose.pose.orientation.y = S * (msg.pose.pose.orientation.y - msg.pose.pose.orientation.x)
+        pub_pose.pose.orientation.z = S * (msg.pose.pose.orientation.z - msg.pose.pose.orientation.w)
+        pub_pose.pose.orientation.w = S * (msg.pose.pose.orientation.w + msg.pose.pose.orientation.z)
+        
+        self.publisher.publish(pub_pose)
         # Uncomment below for debugging (it will be spammy)
         # self.get_logger().info('Relaying pose...')
 

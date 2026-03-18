@@ -1,0 +1,74 @@
+running egg_info
+creating ../../build/drone_control/drone_control.egg-info
+writing ../../build/drone_control/drone_control.egg-info/PKG-INFO
+writing dependency_links to ../../build/drone_control/drone_control.egg-info/dependency_links.txt
+writing entry points to ../../build/drone_control/drone_control.egg-info/entry_points.txt
+writing requirements to ../../build/drone_control/drone_control.egg-info/requires.txt
+writing top-level names to ../../build/drone_control/drone_control.egg-info/top_level.txt
+writing manifest file '../../build/drone_control/drone_control.egg-info/SOURCES.txt'
+reading manifest file '../../build/drone_control/drone_control.egg-info/SOURCES.txt'
+writing manifest file '../../build/drone_control/drone_control.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/jetson/ros2_ws/build/drone_control/build
+creating /home/jetson/ros2_ws/build/drone_control/build/lib
+creating /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/vicon_bridge.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/comm_node_fe3.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/__init__.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/imx219_node.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/flight_controller.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/camera_bridge.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/dummy_vision.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/comm_node.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/realsense_img_logger.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/comm_node_land_w_vicon.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/comm_node_e3.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/comm_node_photo_collection.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+copying drone_control/apriltag_detector.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+running install
+running install_lib
+creating /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/vicon_bridge.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/comm_node_fe3.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/__init__.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/imx219_node.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/flight_controller.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/camera_bridge.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/dummy_vision.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/comm_node.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/realsense_img_logger.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/comm_node_land_w_vicon.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/comm_node_e3.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/comm_node_photo_collection.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/apriltag_detector.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/vicon_bridge.py to vicon_bridge.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/comm_node_fe3.py to comm_node_fe3.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/__init__.py to __init__.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/imx219_node.py to imx219_node.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/flight_controller.py to flight_controller.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/camera_bridge.py to camera_bridge.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/dummy_vision.py to dummy_vision.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/comm_node.py to comm_node.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/realsense_img_logger.py to realsense_img_logger.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/comm_node_land_w_vicon.py to comm_node_land_w_vicon.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/comm_node_e3.py to comm_node_e3.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/comm_node_photo_collection.py to comm_node_photo_collection.cpython-38.pyc
+byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/apriltag_detector.py to apriltag_detector.cpython-38.pyc
+running install_data
+creating /home/jetson/ros2_ws/install/drone_control/share/ament_index
+creating /home/jetson/ros2_ws/install/drone_control/share/ament_index/resource_index
+creating /home/jetson/ros2_ws/install/drone_control/share/ament_index/resource_index/packages
+copying resource/drone_control -> /home/jetson/ros2_ws/install/drone_control/share/ament_index/resource_index/packages
+copying package.xml -> /home/jetson/ros2_ws/install/drone_control/share/drone_control
+running install_egg_info
+Copying ../../build/drone_control/drone_control.egg-info to /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control-0.0.0-py3.8.egg-info
+running install_scripts
+Installing apriltag_detector script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+Installing camera_bridge script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+Installing comm_node script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+Installing dummy_vision script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+Installing flight_controller script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+Installing imx219_node script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+Installing vicon_bridge script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+writing list of installed files to '/home/jetson/ros2_ws/build/drone_control/install.log'

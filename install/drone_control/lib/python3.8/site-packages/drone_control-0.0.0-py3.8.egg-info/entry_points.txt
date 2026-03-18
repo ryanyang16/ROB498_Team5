@@ -1,3 +1,9 @@
 [console_scripts]
+apriltag_detector = drone_control.apriltag_detector:main
+camera_bridge = drone_control.camera_bridge:main
+comm_node = drone_control.comm_node:main
+dummy_vision = drone_control.dummy_vision:main
+flight_controller = drone_control.flight_controller:main
+imx219_node = drone_control.imx219_node:main
 vicon_bridge = drone_control.vicon_bridge:main
 

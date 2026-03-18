@@ -20,7 +20,13 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'flight_controller = drone_control.flight_controller:main',
+            'dummy_vision = drone_control.dummy_vision:main',
+            'comm_node = drone_control.comm_node:main',
+            'camera_bridge = drone_control.camera_bridge:main',
             'vicon_bridge = drone_control.vicon_bridge:main',
+            'imx219_node = drone_control.imx219_node:main',
+            'apriltag_detector = drone_control.apriltag_detector:main'
         ],
     },
 )
