@@ -45,9 +45,11 @@ class CommNode(Node):
         self.last_apriltag_time = 0.0
 
         # --- Tuning Parameters for Centering & Landing ---
-        self.kp_x = 0.005 
-        self.kp_y = -0.005
+        self.kp_x = 0.003 
+        self.kp_y = -0.003
+        self.kp_z = -0.001
         self.max_xy_speed = 0.3
+        self.max_z_speed = 0.05
         self.descent_speed = -0.15
         self.drop_speed = -0.4 
 
@@ -113,7 +115,7 @@ class CommNode(Node):
             
             # Strict boundary constraint: Vicon X, Y in [-2.5, 2.5]
             # Using 2.5 so the drone itself doesn't drift past boundary set by vicon
-            if abs(x) > 2.5 or abs(y) > 2.5:
+            if abs(x) > 2.0 or abs(y) > 2.0:
                 break
                 
             wps.append([x, y, 1.0]) # Z = 1.5 constraint, fly at 1.0m above ground
@@ -348,10 +350,11 @@ class CommNode(Node):
             else:
                 v_x = self.target_2d.x * self.kp_x
                 v_y = self.target_2d.y * self.kp_y
+                v_z = self.target_2d.z * self.kp_z
                 
                 self.vel_x = max(min(v_x, self.max_xy_speed), -self.max_xy_speed)
                 self.vel_y = max(min(v_y, self.max_xy_speed), -self.max_xy_speed)
-                self.vel_z = 0.0 # Maintain height while centering
+                self.vel_z = max(min(v_z, self.max_z_speed), -self.max_z_speed) # 0.0 # Maintain height while centering
 
         elif self.current_state == "LAND_IMX":
             # State 3: LAND_IMX (Visual Servoing + Descent)
