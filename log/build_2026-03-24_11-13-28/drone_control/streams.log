@@ -1,0 +1,30 @@
+[2.936s] Invoking command in '/home/jetson/ros2_ws/src/drone_control': PYTHONPATH=/home/jetson/ros2_ws/build/drone_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_control build --build-base /home/jetson/ros2_ws/build/drone_control/build install --record /home/jetson/ros2_ws/build/drone_control/install.log --install-scripts $base/lib/drone_control --single-version-externally-managed install_data
+[3.804s] running egg_info
+[3.806s] writing ../../build/drone_control/drone_control.egg-info/PKG-INFO
+[3.809s] writing dependency_links to ../../build/drone_control/drone_control.egg-info/dependency_links.txt
+[3.810s] writing entry points to ../../build/drone_control/drone_control.egg-info/entry_points.txt
+[3.810s] writing requirements to ../../build/drone_control/drone_control.egg-info/requires.txt
+[3.811s] writing top-level names to ../../build/drone_control/drone_control.egg-info/top_level.txt
+[3.974s] reading manifest file '../../build/drone_control/drone_control.egg-info/SOURCES.txt'
+[3.979s] writing manifest file '../../build/drone_control/drone_control.egg-info/SOURCES.txt'
+[3.979s] running build
+[3.980s] running build_py
+[3.985s] copying drone_control/apriltag_detector.py -> /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control
+[3.986s] running install
+[3.989s] running install_lib
+[3.995s] copying /home/jetson/ros2_ws/build/drone_control/build/lib/drone_control/apriltag_detector.py -> /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control
+[3.999s] byte-compiling /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control/apriltag_detector.py to apriltag_detector.cpython-38.pyc
+[4.006s] running install_data
+[4.009s] running install_egg_info
+[4.015s] removing '/home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control-0.0.0-py3.8.egg-info' (and everything under it)
+[4.016s] Copying ../../build/drone_control/drone_control.egg-info to /home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages/drone_control-0.0.0-py3.8.egg-info
+[4.021s] running install_scripts
+[4.087s] Installing apriltag_detector script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+[4.088s] Installing camera_bridge script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+[4.089s] Installing comm_node script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+[4.089s] Installing dummy_vision script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+[4.090s] Installing flight_controller script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+[4.090s] Installing imx219_node script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+[4.091s] Installing vicon_bridge script to /home/jetson/ros2_ws/install/drone_control/lib/drone_control
+[4.092s] writing list of installed files to '/home/jetson/ros2_ws/build/drone_control/install.log'
+[4.193s] Invoked command in '/home/jetson/ros2_ws/src/drone_control' returned '0': PYTHONPATH=/home/jetson/ros2_ws/build/drone_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/ros2_ws/install/drone_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_control build --build-base /home/jetson/ros2_ws/build/drone_control/build install --record /home/jetson/ros2_ws/build/drone_control/install.log --install-scripts $base/lib/drone_control --single-version-externally-managed install_data

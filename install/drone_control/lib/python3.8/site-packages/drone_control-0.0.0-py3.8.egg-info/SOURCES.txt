@@ -12,11 +12,10 @@ drone_control/__init__.py
 drone_control/apriltag_detector.py
 drone_control/camera_bridge.py
 drone_control/comm_node.py
-drone_control/comm_node_e3.py
 drone_control/comm_node_fe3.py
+drone_control/comm_node_land_w_apriltag.py
 drone_control/comm_node_land_w_vicon.py
 drone_control/comm_node_photo_collection.py
-drone_control/dummy_vision.py
 drone_control/flight_controller.py
 drone_control/imx219_node.py
 drone_control/realsense_img_logger.py

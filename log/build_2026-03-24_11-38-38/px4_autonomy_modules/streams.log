@@ -1,0 +1,24 @@
+[1.029s] Invoking command in '/home/jetson/ros2_ws/build/px4_autonomy_modules': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/jetson/ros2_ws/build/px4_autonomy_modules -- -j4 -l4
+[1.305s] Invoked command in '/home/jetson/ros2_ws/build/px4_autonomy_modules' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/jetson/ros2_ws/build/px4_autonomy_modules -- -j4 -l4
+[1.352s] Invoking command in '/home/jetson/ros2_ws/build/px4_autonomy_modules': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/jetson/ros2_ws/build/px4_autonomy_modules
+[1.384s] -- Install configuration: ""
+[1.385s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/launch
+[1.385s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/launch/mavros.launch.py
+[1.386s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/launch/px4_pluginlists.yaml
+[1.388s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/launch/px4_config.yaml
+[1.389s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/ament_index/resource_index/package_run_dependencies/px4_autonomy_modules
+[1.389s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/ament_index/resource_index/parent_prefix_path/px4_autonomy_modules
+[1.390s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/environment/ament_prefix_path.sh
+[1.390s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/environment/ament_prefix_path.dsv
+[1.390s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/environment/path.sh
+[1.391s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/environment/path.dsv
+[1.391s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/local_setup.bash
+[1.392s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/local_setup.sh
+[1.392s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/local_setup.zsh
+[1.392s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/local_setup.dsv
+[1.393s] -- Installing: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/package.dsv
+[1.394s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/ament_index/resource_index/packages/px4_autonomy_modules
+[1.395s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/cmake/px4_autonomy_modulesConfig.cmake
+[1.398s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/cmake/px4_autonomy_modulesConfig-version.cmake
+[1.398s] -- Up-to-date: /home/jetson/ros2_ws/install/px4_autonomy_modules/share/px4_autonomy_modules/package.xml
+[1.399s] Invoked command in '/home/jetson/ros2_ws/build/px4_autonomy_modules' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/jetson/ros2_ws/build/px4_autonomy_modules
